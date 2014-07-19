@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorator="main">
+    <head>
+        <title>Content page 1</title>
+        <script src="content-script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Other website</h1>
+        </header>
+        <section layout:fragment="content">
+            <span th:text="${message}">Default</span>
+            Hoy es <span th:text="${#dates.format(#dates.createNow(),'dd MMMM yyyy')}">1</span><br />
+            <span th:text="|Bienvenido a la página ${usuario.name}|">...</span>
+
+            <div th:object="${usuario}">
+                <a href="detalles.html" th:href="@{/usuarios/detalles/nombre(name=*{name},userId=*{id})}">Usuario</a><br />
+                <a href="detalles.html" th:href="@{/usuarios/{userid}/{name}/detalles(userid=*{id},name=*{name})}">Usuarios</a><br />
+                <a href="detalles.html" th:href="@{'/usuarios/' + ${usuario.id}(name=*{name})}">Usuarios</a><br />
+                Nombre: <span th:text="*{name}"></span><br />
+                Apellido: <span th:text="*{lastname}"></span><br />
+                Nacionalidad: <span th:text="*{nationallity}"></span><br />
+            </div>
+
+            <input type="submit"  th:attr="value=${usuario.name}" />
+        </section>
+        <footer>
+            <p layout:fragment="custom-footer">This is some footer content from content page 1</p>
+        </footer>
+    </body>
+</html>
