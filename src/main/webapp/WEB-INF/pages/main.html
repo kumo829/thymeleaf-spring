@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
+        <meta charset="utf-8" />
         <title>Layout page</title>
         <script src="common-script.js"></script>
     </head>
@@ -8,11 +9,11 @@
         <header>
             <h1>My website</h1>
         </header>
-        <div id="algo">
+        <main id="algo">
             <section layout:fragment="content">
                 <p>Page content goes here</p>
             </section>
-        </div>
+        </main>
         <footer>
             <p>My footer</p>
             <p layout:fragment="custom-footer">Custom footer here</p>

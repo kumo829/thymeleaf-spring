@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      xmlns:th="http://www.thymeleaf.org" 
+      layout:decorator="main">
+    <head>
+        <title>Lista de productos</title>
+    </head>
+    <body>
+        <section layout:fragment="content">
+            <h2>Lista de productos</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>UPC</th>
+                        <th>Gramaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="prod, iterStatus: ${listaProductos}">
+                        <td th:text="${prod.id}">Id</td>
+                        <td th:text="${prod.nombre}">Nombre</td>
+                        <td th:text="${iterStatus.index}">Indice</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </section>
+    </body>
+</html>
